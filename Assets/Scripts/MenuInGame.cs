@@ -72,8 +72,6 @@ public class MenuInGame : MonoBehaviour
 
     public void PlayAgain(){
         HideWinUIElements();
-
-        GameObject.Find("Ball").GetComponent<Ball>().PlayAgain();
         
         ResetScore();
     }

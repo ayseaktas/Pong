@@ -137,7 +137,6 @@ public class Ball : MonoBehaviour
     }
 
     public void PlayAgain(){
-        GameObject.Find("Player1").GetComponent<Paddle>().PlayAgain();
         rigidBody.AddForce(new Vector2(9.8f * 40f, 9.8f * 40f));        
     }
 }
