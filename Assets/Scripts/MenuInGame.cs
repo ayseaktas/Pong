@@ -9,8 +9,6 @@ public class MenuInGame : MonoBehaviour
     public TMP_Text playerOneScoreText;
     public TMP_Text playerTwoScoreText;
 
-    public GameObject winElements;
-
     private int playerOneScore = 0;
     private int playerTwoScore = 0;
 
@@ -36,34 +34,21 @@ public class MenuInGame : MonoBehaviour
         if(playerOneScore == 10 || playerTwoScore == 10){
 
             if(playerOneScore == 10){
-                ReplaceWinUIElementsToXPosition(-60.0f);
+                GameObject.Find("ControlGame").GetComponent<WinElementsManagement>().ReplaceWinUIElementsToXPosition(-60.0f);
             }
             else if(playerTwoScore == 10){
-                ReplaceWinUIElementsToXPosition(-380.0f);
+                GameObject.Find("ControlGame").GetComponent<WinElementsManagement>().ReplaceWinUIElementsToXPosition(-380.0f);
             }
 
-            ShowWinUIElements();
+            GameObject.Find("ControlGame").GetComponent<WinElementsManagement>().ShowWinUIElements();
             
             return true;
         }
         return false;
     }
 
-    void ShowWinUIElements(){
-        winElements.SetActive(true);
-    }
-
-    void HideWinUIElements(){
-        winElements.SetActive(false);
-    }
-
-    void ReplaceWinUIElementsToXPosition(float value){
-        Vector2 newPosition = new Vector2(value, -50.0f);
-        winElements.GetComponent<RectTransform>().anchoredPosition  = newPosition;
-    }
-
     public void PlayAgain(){
-        HideWinUIElements();
+        GameObject.Find("ControlGame").GetComponent<WinElementsManagement>().HideWinUIElements();
         
         ResetScore();
     }
