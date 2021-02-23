@@ -1858,7 +1858,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 481402094}
-        m_TargetAssemblyTypeName: MenuInGame, Assembly-CSharp
+        m_TargetAssemblyTypeName: ScoreManagement, Assembly-CSharp
         m_MethodName: PlayAgain
         m_Mode: 1
         m_Arguments:

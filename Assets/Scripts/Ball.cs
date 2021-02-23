@@ -35,10 +35,10 @@ public class Ball : MonoBehaviour
         else if(other.gameObject.tag == "OutBoundary"){
 
             if(other.gameObject.name == "RightBoundary"){
-                GameObject.Find("ControlGame").GetComponent<MenuInGame>().PlayerTwoScoreUp();
+                GameObject.Find("ControlGame").GetComponent<ScoreManagement>().PlayerTwoScoreUp();
             }
             else if(other.gameObject.name == "LeftBoundary"){
-                GameObject.Find("ControlGame").GetComponent<MenuInGame>().PlayerOneScoreUp();
+                GameObject.Find("ControlGame").GetComponent<ScoreManagement>().PlayerOneScoreUp();
             }
             ResetBall();
 
@@ -52,7 +52,7 @@ public class Ball : MonoBehaviour
     void ResetBall(){
         rigidBody.velocity = new Vector2(0.0f, 0.0f);
         transform.localPosition = new Vector2(2.238f, 4.609f);
-        if(!GameObject.Find("ControlGame").GetComponent<MenuInGame>().IsGameOver()){
+        if(!GameObject.Find("ControlGame").GetComponent<ScoreManagement>().IsGameOver()){
             rigidBody.AddForce(new Vector2(9.8f * 40f, 9.8f * 40f));
         }
         else{

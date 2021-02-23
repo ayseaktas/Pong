@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class MenuInGame : MonoBehaviour
+public class ScoreManagement : MonoBehaviour
 {
     public TMP_Text playerOneScoreText;
     public TMP_Text playerTwoScoreText;
@@ -53,7 +53,7 @@ public class MenuInGame : MonoBehaviour
         ResetScore();
     }
 
-    void ResetScore(){
+    private void ResetScore(){
         playerOneScore = 0;
         playerTwoScore = 0;
 
