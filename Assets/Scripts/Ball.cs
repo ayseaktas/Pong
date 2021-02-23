@@ -29,7 +29,7 @@ public class Ball : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other){
         if(other.gameObject.tag == "Boundary"){
-            GameObject.Find("ControlGame").GetComponent<MenuInGame>().PlayBounceSoundEffect();
+            GameObject.Find("ControlGame").GetComponent<GameSoundManagement>().PlayBounceSoundEffect();
             RotateBallWithReflectingIncomingVelocity(other);
         }
         else if(other.gameObject.tag == "OutBoundary"){
@@ -44,7 +44,7 @@ public class Ball : MonoBehaviour
 
         }
         else if( other.gameObject.tag == "Paddle"){
-            GameObject.Find("ControlGame").GetComponent<MenuInGame>().PlayBounceSoundEffect();
+            GameObject.Find("ControlGame").GetComponent<GameSoundManagement>().PlayBounceSoundEffect();
             RotateBallWithCalculatedAngleByDistanceFromPaddlesCenter(other);
         }    
     }

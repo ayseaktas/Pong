@@ -14,12 +14,8 @@ public class MenuInGame : MonoBehaviour
     private int playerOneScore = 0;
     private int playerTwoScore = 0;
 
-    AudioSource audioSource;
-    public AudioClip bounceSoundEffect;
-
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
         playerOneScoreText.text = playerOneScore.ToString();
         playerTwoScoreText.text = playerTwoScore.ToString();
     }
@@ -64,10 +60,6 @@ public class MenuInGame : MonoBehaviour
     void ReplaceWinUIElementsToXPosition(float value){
         Vector2 newPosition = new Vector2(value, -50.0f);
         winElements.GetComponent<RectTransform>().anchoredPosition  = newPosition;
-    }
-
-    public void PlayBounceSoundEffect(){
-        audioSource.PlayOneShot(bounceSoundEffect);
     }
 
     public void PlayAgain(){

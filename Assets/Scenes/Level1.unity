@@ -1941,6 +1941,7 @@ GameObject:
   m_Component:
   - component: {fileID: 481402095}
   - component: {fileID: 481402094}
+  - component: {fileID: 481402096}
   - component: {fileID: 481402093}
   m_Layer: 0
   m_Name: ControlGame
@@ -2060,7 +2061,6 @@ MonoBehaviour:
   playerOneScoreText: {fileID: 1811916390}
   playerTwoScoreText: {fileID: 1645498599}
   winElements: {fileID: 1074646743}
-  bounceSoundEffect: {fileID: 8300000, guid: 15de95625a4f6b645b1a44ccb6d3697c, type: 3}
 --- !u!4 &481402095
 Transform:
   m_ObjectHideFlags: 0
@@ -2075,6 +2075,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &481402096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 481402092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e07270182833a7498f6ac39fb886500, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bounceSoundEffect: {fileID: 8300000, guid: 15de95625a4f6b645b1a44ccb6d3697c, type: 3}
 --- !u!1 &508635896
 GameObject:
   m_ObjectHideFlags: 0
