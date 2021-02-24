@@ -4,27 +4,17 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
-    private Rigidbody2D rigidBody;
 
     public float minimumSpeed = 15f;
 
     private Vector3 lastVelocity;
 
     void Start(){
-        AddForceToBallsRigidbody();
-    }
-
-    void AddForceToBallsRigidbody(){
-        rigidBody = GetComponent<Rigidbody2D>();
-        rigidBody.AddForce(new Vector2(9.8f * 40f, 9.8f * 40f));
+        GameObject.Find("Ball").GetComponent<BallRigidbody>().AddForceToBallsRigidbody();
     }
 
     void Update(){
-        UpdateVelocity();
-    }
-    
-    void UpdateVelocity(){
-        lastVelocity = rigidBody.velocity;
+        lastVelocity = GameObject.Find("Ball").GetComponent<BallRigidbody>().getRigidbodyVelocity();
     }
 
     void OnCollisionEnter2D(Collision2D other){
@@ -50,10 +40,12 @@ public class Ball : MonoBehaviour
     }
 
     void ResetBall(){
-        rigidBody.velocity = new Vector2(0.0f, 0.0f);
+        Vector2 initialVelocity = new Vector2(0.0f, 0.0f);
+        GameObject.Find("Ball").GetComponent<BallRigidbody>().setRigidbodyVelocity(initialVelocity);
+
         transform.localPosition = new Vector2(2.238f, 4.609f);
         if(!GameObject.Find("ControlGame").GetComponent<ScoreManagement>().IsGameOver()){
-            rigidBody.AddForce(new Vector2(9.8f * 40f, 9.8f * 40f));
+            GameObject.Find("Ball").GetComponent<BallRigidbody>().AddForceToBallsRigidbody();
         }
         else{
             GameObject.Find("Player1").GetComponent<Paddle>().IsGameOver();
@@ -75,7 +67,8 @@ public class Ball : MonoBehaviour
         float ballVelocityX = directionX * minimumSpeed * Mathf.Cos(angle);
         float ballVelocityY = minimumSpeed * Mathf.Sin(angle);
 
-        rigidBody.velocity = new Vector2(ballVelocityX, ballVelocityY);
+        Vector2 newVelocity = new Vector2(ballVelocityX, ballVelocityY);
+        GameObject.Find("Ball").GetComponent<BallRigidbody>().setRigidbodyVelocity(newVelocity);
     }
 
     float DistanceBetweenCollidePointAndPaddlesCenter(Collision2D paddle){
@@ -117,17 +110,19 @@ public class Ball : MonoBehaviour
 
         Vector3 normalizedVelocity = NormalizeLastVelocity();
         
-        Vector3 direction = ReflectIncomingAngle(normalizedVelocity, hitObject);
+        Vector2 direction = ReflectIncomingAngle(normalizedVelocity, hitObject);
+
+        Vector2 newVelocity = direction * Mathf.Max(speed, minimumSpeed);
         
-        rigidBody.velocity = direction * Mathf.Max(speed, minimumSpeed);
+        GameObject.Find("Ball").GetComponent<BallRigidbody>().setRigidbodyVelocity(newVelocity);
     }
 
     float CalculateSpeedByLastVelocitysMagnitude(){
         return lastVelocity.magnitude;
     }
 
-    Vector3 NormalizeLastVelocity(){
-        Vector3 normalizedVelocity = lastVelocity.normalized;
+    Vector2 NormalizeLastVelocity(){
+        Vector2 normalizedVelocity = lastVelocity.normalized;
 
         return normalizedVelocity;
     }
@@ -137,6 +132,6 @@ public class Ball : MonoBehaviour
     }
 
     public void PlayAgain(){
-        rigidBody.AddForce(new Vector2(9.8f * 40f, 9.8f * 40f));        
+        GameObject.Find("Ball").GetComponent<BallRigidbody>().AddForceToBallsRigidbody();
     }
 }
