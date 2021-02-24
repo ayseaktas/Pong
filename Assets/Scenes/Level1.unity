@@ -1869,8 +1869,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 846810393}
-        m_TargetAssemblyTypeName: Ball, Assembly-CSharp
+      - m_Target: {fileID: 846810395}
+        m_TargetAssemblyTypeName: BallCollision, Assembly-CSharp
         m_MethodName: PlayAgain
         m_Mode: 1
         m_Arguments:
@@ -3803,6 +3803,8 @@ GameObject:
   - component: {fileID: 846810389}
   - component: {fileID: 846810392}
   - component: {fileID: 846810393}
+  - component: {fileID: 846810394}
+  - component: {fileID: 846810395}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Ball
@@ -3935,6 +3937,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minimumSpeed: 15
+--- !u!114 &846810394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 846810388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb17ded0577fd314a889192e8dda501f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &846810395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 846810388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b30543ba5099d6246a276b3904a3dc2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &876824785
 GameObject:
   m_ObjectHideFlags: 0

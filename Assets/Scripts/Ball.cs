@@ -17,42 +17,7 @@ public class Ball : MonoBehaviour
         lastVelocity = GameObject.Find("Ball").GetComponent<BallRigidbody>().getRigidbodyVelocity();
     }
 
-    void OnCollisionEnter2D(Collision2D other){
-        if(other.gameObject.tag == "Boundary"){
-            GameObject.Find("ControlGame").GetComponent<GameSoundManagement>().PlayBounceSoundEffect();
-            RotateBallWithReflectingIncomingVelocity(other);
-        }
-        else if(other.gameObject.tag == "OutBoundary"){
-
-            if(other.gameObject.name == "RightBoundary"){
-                GameObject.Find("ControlGame").GetComponent<ScoreManagement>().PlayerTwoScoreUp();
-            }
-            else if(other.gameObject.name == "LeftBoundary"){
-                GameObject.Find("ControlGame").GetComponent<ScoreManagement>().PlayerOneScoreUp();
-            }
-            ResetBall();
-
-        }
-        else if( other.gameObject.tag == "Paddle"){
-            GameObject.Find("ControlGame").GetComponent<GameSoundManagement>().PlayBounceSoundEffect();
-            RotateBallWithCalculatedAngleByDistanceFromPaddlesCenter(other);
-        }    
-    }
-
-    void ResetBall(){
-        Vector2 initialVelocity = new Vector2(0.0f, 0.0f);
-        GameObject.Find("Ball").GetComponent<BallRigidbody>().setRigidbodyVelocity(initialVelocity);
-
-        transform.localPosition = new Vector2(2.238f, 4.609f);
-        if(!GameObject.Find("ControlGame").GetComponent<ScoreManagement>().IsGameOver()){
-            GameObject.Find("Ball").GetComponent<BallRigidbody>().AddForceToBallsRigidbody();
-        }
-        else{
-            GameObject.Find("Player1").GetComponent<Paddle>().IsGameOver();
-        }
-    }
-
-    void RotateBallWithCalculatedAngleByDistanceFromPaddlesCenter(Collision2D paddle){
+    public void RotateBallWithCalculatedAngleByDistanceFromPaddlesCenter(Collision2D paddle){
 
         float distance = DistanceBetweenCollidePointAndPaddlesCenter(paddle);
 
@@ -105,7 +70,7 @@ public class Ball : MonoBehaviour
         return direction;
     }
 
-    void RotateBallWithReflectingIncomingVelocity(Collision2D hitObject){
+    public void RotateBallWithReflectingIncomingVelocity(Collision2D hitObject){
         float speed = CalculateSpeedByLastVelocitysMagnitude();
 
         Vector3 normalizedVelocity = NormalizeLastVelocity();
@@ -129,9 +94,5 @@ public class Ball : MonoBehaviour
 
     Vector3 ReflectIncomingAngle(Vector3 normalizedVelocity, Collision2D hitObject){
         return Vector3.Reflect(normalizedVelocity, hitObject.contacts[0].normal);
-    }
-
-    public void PlayAgain(){
-        GameObject.Find("Ball").GetComponent<BallRigidbody>().AddForceToBallsRigidbody();
     }
 }
