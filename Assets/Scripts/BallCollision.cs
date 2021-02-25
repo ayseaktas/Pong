@@ -18,6 +18,7 @@ public class BallCollision : MonoBehaviour
             else if(other.gameObject.name == "LeftBoundary"){
                 GameObject.Find("ControlGame").GetComponent<ScoreManagement>().PlayerOneScoreUp();
             }
+            GameObject.Find("ControlGame").GetComponent<ScoreManagement>().IsGameOver();
             ResetBall();
 
         }
@@ -32,16 +33,8 @@ public class BallCollision : MonoBehaviour
         GameObject.Find("Ball").GetComponent<BallRigidbody>().setRigidbodyVelocity(initialVelocity);
 
         transform.localPosition = new Vector2(2.238f, 4.609f);
-        if(!GameObject.Find("ControlGame").GetComponent<ScoreManagement>().IsGameOver()){
+        if(GameObject.Find("ControlGame").GetComponent<GameStateManager>().IsPlaying()){
             GameObject.Find("Ball").GetComponent<BallRigidbody>().AddForceToBallsRigidbody();
         }
-        else{
-            GameObject.Find("Player1").GetComponent<Paddle>().IsGameOver();
-        }
     }
-
-    public void PlayAgain(){
-        GameObject.Find("Ball").GetComponent<BallRigidbody>().AddForceToBallsRigidbody();
-    }
-
 }

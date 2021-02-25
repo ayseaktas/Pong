@@ -1857,32 +1857,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 481402094}
-        m_TargetAssemblyTypeName: ScoreManagement, Assembly-CSharp
-        m_MethodName: PlayAgain
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 846810395}
-        m_TargetAssemblyTypeName: BallCollision, Assembly-CSharp
-        m_MethodName: PlayAgain
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1555070113}
-        m_TargetAssemblyTypeName: Paddle, Assembly-CSharp
+      - m_Target: {fileID: 481402098}
+        m_TargetAssemblyTypeName: GameStateManager, Assembly-CSharp
         m_MethodName: PlayAgain
         m_Mode: 1
         m_Arguments:
@@ -1943,6 +1919,7 @@ GameObject:
   - component: {fileID: 481402094}
   - component: {fileID: 481402096}
   - component: {fileID: 481402097}
+  - component: {fileID: 481402098}
   - component: {fileID: 481402093}
   m_Layer: 0
   m_Name: ControlGame
@@ -2101,6 +2078,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   winElements: {fileID: 1074646743}
+--- !u!114 &481402098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 481402092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18844f17ac62f334e9b54ba211fee313, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameState: 0
 --- !u!1 &508635896
 GameObject:
   m_ObjectHideFlags: 0
@@ -7113,6 +7103,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1555070112}
   - component: {fileID: 1555070113}
+  - component: {fileID: 1555070115}
   - component: {fileID: 1555070111}
   - component: {fileID: 1555070114}
   m_Layer: 0
@@ -7179,9 +7170,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 12
-  floorMask:
-    serializedVersion: 2
-    m_Bits: 1
 --- !u!50 &1555070114
 Rigidbody2D:
   serializedVersion: 4
@@ -7203,6 +7191,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &1555070115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1555070110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 820fc8106b4064840950605a72b417a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1582111926
 GameObject:
   m_ObjectHideFlags: 0

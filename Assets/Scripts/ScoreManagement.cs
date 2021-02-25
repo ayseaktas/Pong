@@ -41,19 +41,14 @@ public class ScoreManagement : MonoBehaviour
             }
 
             GameObject.Find("ControlGame").GetComponent<WinElementsManagement>().ShowWinUIElements();
-            
+
+            GameObject.Find("ControlGame").GetComponent<GameStateManager>().GameOver();
             return true;
         }
         return false;
     }
 
-    public void PlayAgain(){
-        GameObject.Find("ControlGame").GetComponent<WinElementsManagement>().HideWinUIElements();
-        
-        ResetScore();
-    }
-
-    private void ResetScore(){
+    public void ResetScore(){
         playerOneScore = 0;
         playerTwoScore = 0;
 
